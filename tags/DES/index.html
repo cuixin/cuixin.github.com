@@ -3,17 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>octopress使用小记 | Steven的雕虫小技</title>
+  <title>DES | Steven的雕虫小技</title>
   <meta name="author" content="Steven">
-  
-  <meta name="description" content="在经历了N次删除Blog和重新上传Blog，总算大致玩明白了Octopress。
-Octopress的发布和修改分为两个目录source和public，如果你rake new_post[‘my article’]后，必须进行rake generate，同时就被发布到public目录里。
-修改文章是在">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="octopress使用小记"/>
+  
   <meta property="og:site_name" content="Steven的雕虫小技"/>
 
   
@@ -45,69 +41,36 @@ Octopress的发布和修改分为两个目录source和public，如果你rake new
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">DES</h2>
+
+
+  
+    <article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-06-28T07:21:00.000Z"><a href="/2013/06/28/octopressshi-yong-xiao-ji/">Jun 28 2013</a></time>
+        <time datetime="2014-04-14T07:19:07.000Z"><a href="/2014/04/14/golang中的des加密ecb模式/">Apr 14 2014</a></time>
       
       
   
-    <h1 class="title">octopress使用小记</h1>
+    <h1 class="title"><a href="/2014/04/14/golang中的des加密ecb模式/">Golang中的DES加密ECB模式</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>在经历了N次删除Blog和重新上传Blog，总算大致玩明白了Octopress。</p>
-<p>Octopress的发布和修改分为两个目录source和public，如果你<br>rake new_post[‘my article’]后，必须进行rake generate，同时就被发布到public目录里。</p>
-<p>修改文章是在source目录下修改，然后在rake generate，最后push到远端rake deploy，对于你的修改，再进行:</p>
-<ul>
-<li>git add .</li>
-<li>git commit -m ‘commit description’</li>
-<li>git push origin source</li>
-</ul>
-<p>此举为的是保存下你的原始修改，好做记录跟踪。<br>而远端的blog目录，也会分为两个分支，一个master，一个source，master用于github到你的主页展示，source用作你自己的原始文件记录跟踪。</p>
-<p>如果你想增加CNAME（域名解析），那就增加到source目录下，然后在rake generate，在rake deploy，最后在执行刚才的git的一些指令把你的记录push到远端。</p>
-<p>当然你修改了_config.yam，也是跟刚才的步骤一样。</p>
-<p>Markdown不说了，等我真正喜欢上的时候才发觉，这真的就是为写作而生的，你不需要鼠标的操作，弄个机械键盘吧，对于追求写作的人来说，这是必须的。</p>
+        <p>Golang其实已经实现了ECB模式，但库却不提供，看有人提交了ECB的封装，因为DES的ECB模式是故意不放出来的，也是不安全的，所以就没有合并到Go主干中，可实际中我们又不用那么“安全”，就写了个简单的封装。</p>
+<script src="https://gist.github.com/10612934.js"></script>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/生活/">生活</a>
-  </div>
-
         
-  
-  <div class="tags">
-    <a href="/tags/Blog/">Blog</a>
-  </div>
-
-        
-  <div class="addthis addthis_toolbox addthis_default_style">
-    
-      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-    
-    
-      <a class="addthis_button_tweet"></a>
-    
-    
-      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    
-    
-      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-    
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-
       
       <div class="clearfix"></div>
     </footer>
@@ -130,6 +93,14 @@ var duoshuoQuery = {short_name:"stevencui"};
 	})();
 	</script>
 <!-- 多说公共JS代码 end -->
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -219,7 +190,7 @@ var disqus_shortname = 'steven_cui';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
