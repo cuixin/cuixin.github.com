@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sublime保存时自动转换tab成空格 | Steven的雕虫小技</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="Sublime保存时自动转换tab成空格">
+<meta name="og:url" content="http://www.100hack.com/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/">
+<meta name="og:image">
+<meta name="og:site_name" content="Steven的雕虫小技">
+<meta name="og:description" content="每次保存前手动转换实在太烦人，下面这个脚本可以帮到你。
+
+打开sublime的Preference -&gt; Browser Packages …  
+新建一个目录ExpandTabsOnSave  
+新建文件ExpandTabsOnSave.py  
+把下面内容复制进去，保存  
+1
+2
+3
+4
+5
+6
+import sublime, sublime_plugin, os
+
+class Exp">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Steven的雕虫小技" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Steven的雕虫小技</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Golang/Java/C</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.100hack.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/" class="article-date">
+  <time datetime="2013-09-25T03:28:00.000Z" itemprop="datePublished">Sep 25 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编辑器/">编辑器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sublime保存时自动转换tab成空格
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>每次保存前手动转换实在太烦人，下面这个脚本可以帮到你。</p>
+<ol>
+<li>打开sublime的Preference -&gt; Browser Packages …  </li>
+<li>新建一个目录ExpandTabsOnSave  </li>
+<li>新建文件ExpandTabsOnSave.py  </li>
+<li><p>把下面内容复制进去，保存  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">import</span> sublime, sublime_plugin, os
+
+<span class="class"><span class="keyword">class</span> <span class="title">ExpandTabsOnSave</span><span class="params">(sublime_plugin.EventListener)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">on_pre_save</span><span class="params">(self, view)</span>:</span>
+        <span class="keyword">if</span> view.settings().get(<span class="string">'expand_tabs_on_save'</span>) == <span class="number">1</span>:
+            view.window().run_command(<span class="string">'expand_tabs'</span>)
+</pre></td></tr></table></figure>
+</li>
+<li><p>如果你想只是应用于当前项目，在 .sublime-project文件下添加：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="string">"settings"</span>: {
+    <span class="string">"expand_tabs_on_save"</span>: <span class="literal">true</span>
+}
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>6.全局改变，打开Preferences -&gt; Settings - User添加：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="string">"settings"</span>: {
+    <span class="string">"expand_tabs_on_save"</span>: <span class="literal">true</span>
+}
+</pre></td></tr></table></figure>
+
+<p>原文地址：<a href="https://coderwall.com/p/zvyg7a" target="_blank">https://coderwall.com/p/zvyg7a</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.100hack.com/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/" data-id="gdexq740b0zkkwbl" class="article-share-link">Share</a>
+      
+        <a href="http://www.100hack.com/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/09/28/golang-skim/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          初见Golang
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/09/02/switch-erlang-version/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Switch Erlang Version Shell</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C语言/">C语言</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Erlang/">Erlang</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lua/">Lua</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Terminal/">Terminal</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编辑器/">编辑器</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Erlang/">Erlang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fabric/">Fabric</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/">Golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebGame/">WebGame</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/">zsh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/统计/">统计</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: NaNpx;">Blog</a><a href="/tags/Erlang/" style="font-size: NaNpx;">Erlang</a><a href="/tags/Fabric/" style="font-size: NaNpx;">Fabric</a><a href="/tags/Golang/" style="font-size: NaNpx;">Golang</a><a href="/tags/Netty/" style="font-size: NaNpx;">Netty</a><a href="/tags/Sublime/" style="font-size: NaNpx;">Sublime</a><a href="/tags/WebGame/" style="font-size: NaNpx;">WebGame</a><a href="/tags/zsh/" style="font-size: NaNpx;">zsh</a><a href="/tags/指针/" style="font-size: NaNpx;">指针</a><a href="/tags/统计/" style="font-size: NaNpx;">统计</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07">July 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">June 2013</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2013/09/28/golang-skim/">初见Golang</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/">Sublime保存时自动转换tab成空格</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/02/switch-erlang-version/">Switch Erlang Version Shell</a>
+          </li>
+        
+          <li>
+            <a href="/2013/08/08/cyu-yan-zhi-zhen-he-nei-cun-bu-ju-de-na-xie-shi/">C语言指针和内存布局的那些事</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/31/zshzhong-wen-luan-ma-wen-ti/">zsh中文乱码问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Steven<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'steven_cui';
+  
+  var disqus_url = 'http://www.100hack.com/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>

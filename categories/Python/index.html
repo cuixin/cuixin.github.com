@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: Python | Steven的雕虫小技</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title">
+<meta name="og:url" content="http://www.100hack.com/categories/Python/">
+<meta name="og:image">
+<meta name="og:site_name" content="Steven的雕虫小技">
+<meta name="og:description">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Steven的雕虫小技" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Steven的雕虫小技</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Golang/Java/C</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.100hack.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-fabricshi-yong-xiao-ji" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/06/28/fabricshi-yong-xiao-ji/" class="article-date">
+  <time datetime="2013-06-28T08:28:00.000Z" itemprop="datePublished">Jun 28 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/06/28/fabricshi-yong-xiao-ji/">fabric使用小记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Fabric:</p>
+<p><a href="https://github.com/fabric/fabric" target="_blank">https://github.com/fabric/fabric</a></p>
+<p>Docs:</p>
+<p><a href="http://fabfile.org" target="_blank">http://fabfile.org</a></p>
+<p>Fabric主要应用与命令行指令打包程序和上传，进行一些部署任务。当然你做什么都可以。但基于SSH的是比较方便的。</p>
+<p>fabric常用的几个命令行参数:</p>
+<ol>
+<li>-u USER 修改的是env.user</li>
+<li>-p PASSWORD 修改的是env.password</li>
+<li>-H HOSTS 修改的是env.hosts</li>
+<li>-f FABFILE 指定要执行的fabfile，默认运行当前目录的fabfile.py</li>
+</ol>
+<p>指定某个任务的执行参数:</p>
+<ol>
+<li>使用:来分割任务和参数</li>
+<li>使用,来分割参数</li>
+<li>使用=来表示关键字参数.</li>
+</ol>
+<p>例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">def</span> <span class="title">new_user</span><span class="params">(username, admin=<span class="string">'no'</span>, comment=<span class="string">"No comment provided"</span>)</span>:</span>
+    print(<span class="string">"New User (%s): %s"</span> % (username, comment))
+    <span class="keyword">pass</span>
+</pre></td></tr></table></figure>
+
+<ol>
+<li><p>你可以指定username</p>
+ <figure class="highlight $"><figcaption><span>fab new_user:steven```</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="attribute">2. 或者用关键字赋值
+
+	```$ fab new_user:username</span>=<span class="string">steven</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>如果两个参数都给了，那就按照位置赋值</p>
+ <figure class="highlight $"><figcaption><span>fab new_user:steven,yes```</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="attribute">
+4. 或者混合着使用
+
+	```$ fab new_user:steven,admin</span>=<span class="string">yes</span>
+</pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h4 id="注意：如果第一个参数采用关键字赋值的情况，那么后面的单词也必须是这种方式。">注意：如果第一个参数采用关键字赋值的情况，那么后面的单词也必须是这种方式。</h4>
+<p><del>fab new_user:username=myusername,yes</del></p>
+<p>几个常用的指令：</p>
+<ol>
+<li>lcd    本地的cd命令</li>
+<li>local  本地的指令</li>
+<li>cd     远端的cd命令</li>
+<li>run    远端的指令</li>
+</ol>
+<p>一个打包和上传的例子：</p>
+<script src="https://gist.github.com/c15a3dd722d2dc9c7df3.js"></script>
+
+
+<p>现在本地执行了一系列的打包指令，然后cd到远端，再执行put指令，将本地的test-1.0.jar推送到远端.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.100hack.com/2013/06/28/fabricshi-yong-xiao-ji/" data-id="5u94o0zq5fs53slw" class="article-share-link">Share</a>
+      
+        <a href="http://www.100hack.com/2013/06/28/fabricshi-yong-xiao-ji/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fabric/">Fabric</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C语言/">C语言</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Erlang/">Erlang</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lua/">Lua</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Terminal/">Terminal</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编辑器/">编辑器</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Erlang/">Erlang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fabric/">Fabric</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/">Golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebGame/">WebGame</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/">zsh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/统计/">统计</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: NaNpx;">Blog</a><a href="/tags/Erlang/" style="font-size: NaNpx;">Erlang</a><a href="/tags/Fabric/" style="font-size: NaNpx;">Fabric</a><a href="/tags/Golang/" style="font-size: NaNpx;">Golang</a><a href="/tags/Netty/" style="font-size: NaNpx;">Netty</a><a href="/tags/Sublime/" style="font-size: NaNpx;">Sublime</a><a href="/tags/WebGame/" style="font-size: NaNpx;">WebGame</a><a href="/tags/zsh/" style="font-size: NaNpx;">zsh</a><a href="/tags/指针/" style="font-size: NaNpx;">指针</a><a href="/tags/统计/" style="font-size: NaNpx;">统计</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07">July 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">June 2013</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2013/09/28/golang-skim/">初见Golang</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/">Sublime保存时自动转换tab成空格</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/02/switch-erlang-version/">Switch Erlang Version Shell</a>
+          </li>
+        
+          <li>
+            <a href="/2013/08/08/cyu-yan-zhi-zhen-he-nei-cun-bu-ju-de-na-xie-shi/">C语言指针和内存布局的那些事</a>
+          </li>
+        
+          <li>
+            <a href="/2013/07/31/zshzhong-wen-luan-ma-wen-ti/">zsh中文乱码问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Steven<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'steven_cui';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>

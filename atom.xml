@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Steven的雕虫小技]]></title>
+  <subtitle><![CDATA[Golang/Java/C]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://www.100hack.com/"/>
+  <updated>2014-04-14T06:29:37.740Z</updated>
+  <id>http://www.100hack.com/</id>
+  
+  <author>
+    <name><![CDATA[Steven]]></name>
+    <email><![CDATA[steven.cuixin@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[初见Golang]]></title>
+    <link href="http://www.100hack.com/2013/09/28/golang-skim/"/>
+    <id>http://www.100hack.com/2013/09/28/golang-skim/</id>
+    <published>2013-09-27T17:14:00.000Z</published>
+    <updated>2014-04-14T06:23:47.000Z</updated>
+    <content type="html"><![CDATA[<p>在最近用了大概不到一周的业余时间，Golang我已经深深的喜欢上了，并实现了并发的网游后端框架。</p>
+<p>没有了Erlang一开始的那种朦胧感，看到Golang的时候，真的是给我眼前一亮的感觉，几乎综合了喜欢各种语言优势与一身的语言。</p>
+<p>其实Golang比较早听说，在1.0版本以前大多数人都反映不稳定啊等等，那时候没有太刻意想去了解她，可现在地球人已经不能阻止Golang的流行了。</p>
+<p>几个超级喜欢的特性，真是让我爱不释手了：  </p>
+<ol>
+<li>routine,channel（类似Erlang的mail box，这就是并发的基础啊）  </li>
+<li>多参数返回（哎呀，Lua最爱的特性啊）  </li>
+<li>duck typing（哈哈，来自Python，虽然我不怎么待见Python）  </li>
+<li>闪电般的编译速度啊，地球人都看傻了。  </li>
+<li>极其方便的结合C啊，尼玛啊，碉堡了。  </li>
+<li>Slice，这个设计从一定程度上简化了数组操作和内存访问。</li>
+</ol>
+<p>目前唯一让我感觉遗憾的是，为什么没有宏定义。<br>通过gcc的预处理器可以简单的进行文件替换达到效果，但是还是很希望语言层能这么做，但可能会影响编译速度，我个人觉得实现不难，应该让程序员可以自由选择。</p>
+<p>我曾做过Erlang的echo server跟go lang的echo server性能对比，几乎是一样的（Golang稍微慢10%），当然在没有任何逻辑的情况下。但是如果做数据广播和计算的话，Erlang就比较麻烦。。。</p>
+<p>还有性能，Golang真的很快，在看到Golang系统库的时候，除了能学习系统库的设计模式，还能看到很多C底层的东西，这是一个面向给程序员和对性能带有偏执狂的宝库啊，真是太棒了，这对于对底层敢兴趣的人绝对是不容错过的，而且你在学习他的同时，你对C语言能力的提升将是潜默移化的。相比，Erlang更感觉是函数式和数据流的抽象，更多的关注业务层，如果想更深入，得需要极强的功底去把底层搞懂，而且很多优化必须要hack代码才能做到。</p>
+<p>我可以大胆预测，未来将是Go的天下，关键是这个语言从底层到业务层什么都能做啊，爽爆了，以前用java的时候，想弄点底层搞死你，看到这里像我这样苦逼的同学有木有？</p>
+<p>近两天我觉得Go的Log库并不好，虽然简单，但不能满足自己实现Log日志的功能。我想自己简单实现一个Log，功能包含两个，一个打印到控制台，另外一个输出到文件，支持日志的级别输出(Debug, Log, Error, Fatal)，然后就动手写了一个，并用了匿名函数做了封装（使用了闭包），区区200行，就实现了，这也只是看完Go语言没几个小时就做出来的。<br>有兴趣的同学可以去<a href="http://github.com/cuixin/log4g" target="_blank"><strong>浏览</strong></a></p>
+<p>其实Go的Redis Client库没觉得有太简洁的，有时间自己实现个。</p>
+<p>另外，我个人非常欣赏agentzh大神的lua-resty-redis库，洋洋洒洒300行就搞定，简洁唯美，代码越多越难维护，而且lua的这个module访问拦截，真是太强大了，我对lua一直处于赞赏状态，还有对table的操作简直太方便了，几乎任何一切数据结构能都能搞定。</p>
+<p>八卦一下，Rob Pike怎么这么像Golang的吉祥物。。。<br>这位大神，并行不是并发的讲解即轻松又印象深刻，<a href="http://blog.golang.org/concurrency-is-not-parallelism" target="_blank"><strong>猛击这里</strong></a><br>还有这个Go语言的并发范式，<a href="http://www.youtube.com/watch?v=f6kdp27TYZs" target="_blank"><strong>猛击这里</strong></a><br>而且<a href="http://blog.golang.org/" target="_blank"><strong>blog.golang.org</strong></a>真是太多实用的东西了，都是大神啊，越简单的东西，越稳定，越能制造出非凡，Golang我觉得是在做性能和工作效率的权衡，个人感觉已经非常极致了。</p>
+<p>总之，我无法阻挡继续深入Golang了，下来基本上所有的工作都需要围绕Go展开了，信心满满，Let’s Go！</p>
+]]></content>
+    
+    
+      <category term="Golang" scheme="http://www.100hack.com/tags/Golang/"/>
+    
+      <category term="Golang" scheme="http://www.100hack.com/categories/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Sublime保存时自动转换tab成空格]]></title>
+    <link href="http://www.100hack.com/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/"/>
+    <id>http://www.100hack.com/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/</id>
+    <published>2013-09-25T03:28:00.000Z</published>
+    <updated>2014-04-14T06:23:38.000Z</updated>
+    <content type="html"><![CDATA[<p>每次保存前手动转换实在太烦人，下面这个脚本可以帮到你。</p>
+<ol>
+<li>打开sublime的Preference -&gt; Browser Packages …  </li>
+<li>新建一个目录ExpandTabsOnSave  </li>
+<li>新建文件ExpandTabsOnSave.py  </li>
+<li><p>把下面内容复制进去，保存  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">import</span> sublime, sublime_plugin, os
+
+<span class="class"><span class="keyword">class</span> <span class="title">ExpandTabsOnSave</span><span class="params">(sublime_plugin.EventListener)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">on_pre_save</span><span class="params">(self, view)</span>:</span>
+        <span class="keyword">if</span> view.settings().get(<span class="string">'expand_tabs_on_save'</span>) == <span class="number">1</span>:
+            view.window().run_command(<span class="string">'expand_tabs'</span>)
+</pre></td></tr></table></figure>
+</li>
+<li><p>如果你想只是应用于当前项目，在 .sublime-project文件下添加：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="string">"settings"</span>: {
+    <span class="string">"expand_tabs_on_save"</span>: <span class="literal">true</span>
+}
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>6.全局改变，打开Preferences -&gt; Settings - User添加：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="string">"settings"</span>: {
+    <span class="string">"expand_tabs_on_save"</span>: <span class="literal">true</span>
+}
+</pre></td></tr></table></figure>
+
+<p>原文地址：<a href="https://coderwall.com/p/zvyg7a" target="_blank">https://coderwall.com/p/zvyg7a</a></p>
+]]></content>
+    
+    
+      <category term="Sublime" scheme="http://www.100hack.com/tags/Sublime/"/>
+    
+      <category term="编辑器" scheme="http://www.100hack.com/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Switch Erlang Version Shell]]></title>
+    <link href="http://www.100hack.com/2013/09/02/switch-erlang-version/"/>
+    <id>http://www.100hack.com/2013/09/02/switch-erlang-version/</id>
+    <published>2013-09-02T13:50:00.000Z</published>
+    <updated>2014-04-14T06:23:25.000Z</updated>
+    <content type="html"><![CDATA[<p>So, When I used brew to installed erlang, that’s version was too old. I compiled a new version to /usr/local/Cellar/erlang/RXXXX folder.</p>
+<p>I wanna both versions to being, wrote a shell to switch them:)</p>
+<p>./switch_erlang YOUR_ERLANG_FOLDER</p>
+<p>My computer’s like this:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>cd /usr/<span class="built_in">local</span>/Cellar/erlang/
+./switch_erlang.sh R15B03-<span class="number">1</span>
+Processing R15B03-<span class="number">1</span> -&gt; /usr/<span class="built_in">local</span>/bin
+/usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin
+Deleting <span class="built_in">files</span> ct_run dialyzer epmd erl erlc escript run_erl run_test to_erl typer
+Linking <span class="built_in">files</span>:
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/ct_run ct_run
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/dialyzer dialyzer
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/epmd epmd
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/erl erl
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/erlc erlc
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/escript escript
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/run_erl run_erl
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/run_test run_test
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/to_erl to_erl
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/typer typer
+Processed OK
+</pre></td></tr></table></figure>
+
+<script src="https://gist.github.com/6413056.js"></script>
+]]></content>
+    
+    
+      <category term="Erlang" scheme="http://www.100hack.com/tags/Erlang/"/>
+    
+      <category term="Erlang" scheme="http://www.100hack.com/categories/Erlang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[C语言指针和内存布局的那些事]]></title>
+    <link href="http://www.100hack.com/2013/08/08/cyu-yan-zhi-zhen-he-nei-cun-bu-ju-de-na-xie-shi/"/>
+    <id>http://www.100hack.com/2013/08/08/cyu-yan-zhi-zhen-he-nei-cun-bu-ju-de-na-xie-shi/</id>
+    <published>2013-08-08T10:30:00.000Z</published>
+    <updated>2014-04-14T06:23:12.000Z</updated>
+    <content type="html"><![CDATA[<p>C语言不如说是内存操作的语言，指针和内存就是C语言的精华一点也不为过。这是篇非常基础的文章，好记性不如烂笔头，以便自己查阅。</p>
+<p>我们都知道指针的作用是指向另外一个内存的地址</p>
+<p><code>void *addr = &amp;memory;</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> main()
+{
+    <span class="keyword">int</span> i = <span class="number">42</span>;
+    <span class="keyword">int</span> *pi = &amp;i;
+    <span class="built_in">printf</span>(<span class="string">"i = %d, i's address = %p\n"</span>, i, &amp;i);
+    <span class="built_in">printf</span>(<span class="string">"pi = %p, pi's address = %p, pi dereference = %d\n"</span>, pi, &amp;pi, *pi);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+<p>其<br><code>char *str = &quot;hello world&quot;;</code></p>
+<p>表示一个char指针指向内存堆(heap)的地址.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)
+{
+    <span class="keyword">char</span> *str = <span class="string">"hello world"</span>;
+    <span class="built_in">printf</span>(<span class="string">"str %s\n"</span>, str);
+    <span class="built_in">printf</span>(<span class="string">"*str = %p \n"</span>, *str);
+    <span class="built_in">printf</span>(<span class="string">"&amp;str = %p \n"</span>, &amp;str);
+    <span class="built_in">printf</span>(<span class="string">"str pointer =  %p\n"</span>, str);
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>$ ./helloworld
+<span class="keyword">str</span> hello world
+*<span class="keyword">str</span> = <span class="number">0x68</span>
+&<span class="keyword">str</span> = <span class="number">0x7fff68be3528</span>
+<span class="keyword">str</span> pointer =  <span class="number">0x108fe4f28</span>
+</pre></td></tr></table></figure>
+
+<p>char*表示指向char类型的地址，已经分配的字符串是无法修改的（通过char*定义的，实际上也能修改）。</p>
+<p>好吧，下面这个例子很容易说明问题:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="keyword">void</span> swapchar(<span class="keyword">char</span> **a, <span class="keyword">char</span> **b)
+{
+  <span class="built_in">printf</span>(<span class="string">"in function *a = %p, *b = %p\n"</span>, *a, *b);
+  <span class="keyword">char</span> *temp = *a;
+  *a = *b;
+  *b = temp;
+  <span class="built_in">printf</span>(<span class="string">"in function a's address %p, b's address %p\n"</span>, a, b);
+}
+
+<span class="keyword">void</span> swapint(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)
+{
+  <span class="keyword">int</span> temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)
+{
+  <span class="keyword">int</span> x = <span class="number">3</span>, y = <span class="number">5</span>;
+  swapint(&amp;x, &amp;y);
+  <span class="built_in">printf</span>(<span class="string">"x = %d y = %d\n\n"</span>, x, y);
+
+  <span class="keyword">char</span> *a = <span class="string">"husband"</span>;
+  <span class="keyword">char</span> *b = <span class="string">"wife"</span>;
+  <span class="built_in">printf</span>(<span class="string">"a = %s, a's pointer = %p, &amp;a = %p\n"</span>, a, a, &amp;a);
+  <span class="built_in">printf</span>(<span class="string">"b = %s, b's pointer = %p, &amp;b = %p\n"</span>, b, b, &amp;b);
+
+  swapchar(&amp;a, &amp;b);
+  <span class="built_in">printf</span>(<span class="string">"a = %s, a's pointer = %p, &amp;a = %p\n"</span>, a, a, &amp;a);
+  <span class="built_in">printf</span>(<span class="string">"b = %s, b's pointer = %p, &amp;b = %p\n"</span>, b, b, &amp;b);
+
+  <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>$ ./swapstr
+x = <span class="number">5</span> y = <span class="number">3</span>
+
+a = husband, a<span class="attribute">'s</span> pointer = <span class="number">0x101673ebe</span>, &a = <span class="number">0x7fff61272520</span>
+b = wife, b<span class="attribute">'s</span> pointer = <span class="number">0x101673ec6</span>, &b = <span class="number">0x7fff61272518</span>
+<span class="keyword">in</span> <span class="keyword">function</span> *a = <span class="number">0x101673ebe</span>, *b = <span class="number">0x101673ec6</span>
+<span class="keyword">in</span> <span class="keyword">function</span> a<span class="attribute">'s</span> address <span class="number">0x7fff61272520</span>, b<span class="attribute">'s</span> address <span class="number">0x7fff61272518</span>
+a = wife, a<span class="attribute">'s</span> pointer = <span class="number">0x101673ec6</span>, &a = <span class="number">0x7fff61272520</span>
+b = husband, b<span class="attribute">'s</span> pointer = <span class="number">0x101673ebe</span>, &b = <span class="number">0x7fff61272518</span>
+</pre></td></tr></table></figure>
+
+<p>swapint工作的好好的，假设要是照葫芦画瓢写个swapchar你可以试试，肯定是没法工作的，因为在char*本身不会保存数据（保存数据的是内存堆,并不是一个字节的char），所以在*char解引用的时候得到的是堆地址的第一个字符（首地址）。上面的例子比较清楚，另外补充说明：一级指针解引后得到的是数据，而二级指针解引后得到的是数据的地址，也就是说我们在解引以及char的时候得到的数据，无法取得地址，从而没法进行char地址交换。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>void badswapchar(char <span class="variable">*a</span>, char <span class="variable">*b</span>)
+{
+  char temp = <span class="variable">*a</span>;
+  <span class="variable">*a</span> = <span class="variable">*b</span>;
+  <span class="variable">*b</span> = temp;
+}
+</pre></td></tr></table></figure>
+
+<p>上面这个是不能工作的，当然，我们还可以把函数参数换成void<em>就可以工作了，void</em>可以转换成任意地址，这个强大的真让人赞叹，什么都能转换，有时候得需要一定的想象力才能把程序写的漂亮：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">void</span> badswapchar(<span class="keyword">void</span> *a, <span class="keyword">void</span> *b)
+{
+  <span class="keyword">char</span> *x = *((<span class="keyword">char</span>**)a); <span class="comment">// 先转换成一个二级指针，从而能取到堆的地址</span>
+
+  *(<span class="keyword">char</span>**)a = *(<span class="keyword">char</span>**)b;
+  *(<span class="keyword">char</span>**)b = x;
+}
+</pre></td></tr></table></figure>
+
+<p>下面的这个例子是关于swap通用函数的使用，在C++中通常大多数会采用模板的方式。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#include &lt;string.h&gt;</span>
+
+<span class="keyword">void</span> swap(<span class="keyword">void</span> *ap, <span class="keyword">void</span> *bp, <span class="keyword">int</span> size)
+{
+  <span class="keyword">char</span> buffer[size];
+
+  <span class="built_in">memcpy</span>(buffer, ap, size);
+  <span class="built_in">memcpy</span>(ap, bp, size);
+  <span class="built_in">memcpy</span>(bp, buffer, size);
+}
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)
+{
+  <span class="keyword">int</span> x = <span class="number">44</span>;
+  <span class="keyword">short</span>  y = <span class="number">5</span>;
+  <span class="built_in">printf</span>(<span class="string">"original x's memory layout:\n"</span>);
+  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)
+    <span class="built_in">printf</span>(<span class="string">"%d "</span>, *((<span class="keyword">char</span>*)((<span class="keyword">char</span>*)&amp;x + i)));
+  <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+
+  <span class="built_in">printf</span>(<span class="string">"original y's memory layout:\n"</span>);
+  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(<span class="keyword">short</span>); i++)
+    <span class="built_in">printf</span>(<span class="string">"%d "</span>, *((<span class="keyword">char</span>*)((<span class="keyword">char</span>*)&amp;y + i)));
+  <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+
+  swap(&amp;x, &amp;y, <span class="number">2</span>);
+
+  <span class="built_in">printf</span>(<span class="string">"exchanged x's memory layout:\n"</span>);
+  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(<span class="keyword">int</span>); i++)
+    <span class="built_in">printf</span>(<span class="string">"%d "</span>, *((<span class="keyword">char</span>*)((<span class="keyword">char</span>*)&amp;x + i)));
+  <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+
+  <span class="built_in">printf</span>(<span class="string">"exchanged y's memory layout:\n"</span>);
+  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(<span class="keyword">short</span>); i++)
+    <span class="built_in">printf</span>(<span class="string">"%d "</span>, *((<span class="keyword">char</span>*)((<span class="keyword">char</span>*)&amp;y + i)));
+  <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+
+  <span class="built_in">printf</span>(<span class="string">"x = %d, y = %d\n"</span>, x, y);
+  <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>$ ./swap
+original x's memory <span class="keyword">layout</span>:
+<span class="number">44</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>
+original y's memory <span class="keyword">layout</span>:
+<span class="number">5</span> <span class="number">0</span>
+exchanged x's memory <span class="keyword">layout</span>:
+<span class="number">5</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>
+exchanged y's memory <span class="keyword">layout</span>:
+<span class="number">44</span> <span class="number">0</span>
+x = <span class="number">5</span>, y = <span class="number">44</span>
+</pre></td></tr></table></figure>
+
+<p>这个例子如果在Big Endian机器上跑的话，会出现问题，大多数机器都会是Little Endian，像PowerPC,Motorola的CPU会是Big序.<br>网络传输大多目前都采用Big Endian，Java的网络采用的是Big Endian。</p>
+<p>那我们来看下内存布局，将一个int跟short进行交换，int本身是4个字节，short两个字节，两个变量的空间不同必然会导致数据出现问题，但由于是little endian序，反而没问题。</p>
+<p>补充一个检验机器是什么字节序的代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)
+{
+  <span class="keyword">char</span> endian[<span class="number">2</span>] = {<span class="number">0</span>, <span class="number">1</span>};
+  <span class="keyword">short</span> test = *(<span class="keyword">short</span>*)endian;
+  <span class="keyword">if</span> (test == <span class="number">1</span>)
+    <span class="built_in">printf</span>(<span class="string">"big endian\n"</span>);
+  <span class="keyword">else</span>
+    <span class="built_in">printf</span>(<span class="string">"little endian\n"</span>);
+  <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+
+<p>下面是一个通用的search数组，找到index的例子，从中你可以感受到内存的操作和比较，注释掉的部分可以打开来代替memcmp函数的功能。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#include &lt;string.h&gt;</span>
+<span class="keyword">int</span> isearch(<span class="keyword">void</span> *key, <span class="keyword">void</span> *base, <span class="keyword">int</span> n, <span class="keyword">int</span> element_size)
+{
+  <span class="keyword">int</span> index = -<span class="number">1</span>;
+  <span class="keyword">int</span> j = <span class="number">0</span>;
+
+  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {
+    <span class="keyword">void</span> *val = (<span class="keyword">char</span>*)base + i * element_size;
+    <span class="keyword">if</span> (<span class="built_in">memcmp</span>(val, key, element_size) == <span class="number">0</span>)
+      <span class="keyword">return</span> i;
+    <span class="comment">/*
+    for (j = 0; j &lt; element_size; j++) {
+      if ( *((char*)((char*)key + j)) != *((char*)((char*)val + j)) )
+        break;
+    }
+    if (j == element_size) {
+      index = i;
+      break;
+    }
+    */</span>
+  }
+  <span class="keyword">return</span> index;
+}
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)
+{
+  <span class="keyword">int</span> arr[<span class="number">9</span>] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>};
+  <span class="keyword">int</span> k = <span class="number">4</span>;
+  <span class="keyword">int</span> index = isearch(&amp;k, arr, <span class="keyword">sizeof</span>(arr)/<span class="keyword">sizeof</span>(arr[<span class="number">0</span>]), <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]));
+  <span class="built_in">printf</span>(<span class="string">"array is "</span>);
+  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(arr)/<span class="keyword">sizeof</span>(arr[<span class="number">0</span>]); i++)
+    <span class="built_in">printf</span>(<span class="string">"%d "</span>, arr[i]);
+  <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+  <span class="built_in">printf</span>(<span class="string">"find %d, index = %d\n"</span>, k, index);
+  <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>$./isearch
+<span class="keyword">array</span> <span class="keyword">is</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>
+find <span class="number">4</span>, <span class="keyword">index</span> = <span class="number">3</span>
+</pre></td></tr></table></figure>
+
+<p>好的，我们继续再来看看struct的内存布局的一个例子:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)
+{
+  <span class="keyword">struct</span> fracnum {
+    <span class="keyword">int</span> num;
+    <span class="keyword">int</span> denum;
+  };
+
+  <span class="keyword">struct</span> fracnum pi;
+  pi.num = <span class="number">22</span>;
+  pi.denum = <span class="number">7</span>;
+
+  <span class="built_in">printf</span>(<span class="string">"fracnum's size = %ld\n"</span>, <span class="keyword">sizeof</span>(<span class="keyword">struct</span> fracnum));
+  <span class="built_in">printf</span>(<span class="string">"&amp;pi = %p\n"</span>, &amp;pi);
+  <span class="built_in">printf</span>(<span class="string">"&amp;(pi.denum) = %p\n"</span>, &amp;(pi.denum));
+  <span class="built_in">printf</span>(<span class="string">"&amp;(pi.num) = %p\n"</span>, &amp;(pi.num));
+  <span class="built_in">printf</span>(<span class="string">"((struct fracnum*)&amp;(pi.denum))-&gt;num = %d\n"</span>,
+         ((<span class="keyword">struct</span> fracnum*)&amp;(pi.denum))-&gt;num);
+  <span class="built_in">printf</span>(<span class="string">"((struct fracnum*)&amp;(pi.denum))-&gt;denum = %d\n"</span>,
+         ((<span class="keyword">struct</span> fracnum*)&amp;(pi.denum))-&gt;denum);
+  <span class="built_in">printf</span>(<span class="string">"&amp;(((struct fracnum*)&amp;(pi.denum))-&gt;denum) = %p\n"</span>,
+         &amp;(((<span class="keyword">struct</span> fracnum*)&amp;(pi.denum))-&gt;denum));
+
+  ((<span class="keyword">struct</span> fracnum*)&amp;(pi.denum))-&gt;num = <span class="number">12</span>; <span class="comment">// notice the address.</span>
+  ((<span class="keyword">struct</span> fracnum*)&amp;(pi.denum))-&gt;denum = <span class="number">33</span>; <span class="comment">// over the boundary.</span>
+  <span class="built_in">printf</span>(<span class="string">"num = %d denum = %d\n"</span>, pi.num, pi.denum); <span class="comment">// 22, 12</span>
+  <span class="built_in">printf</span>(<span class="string">"unknown data = %d\n"</span>, *((<span class="keyword">int</span>*)((<span class="keyword">char</span>*)&amp;pi + <span class="number">8</span>))); <span class="comment">// 33</span>
+  <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>$ ./fracnum
+fracnum's size = <span class="number">8</span>
+&<span class="constant">pi</span> = <span class="number">0x7fff69aea528</span>
+&(<span class="constant">pi</span>.denum) = <span class="number">0x7fff69aea52c</span>
+&(<span class="constant">pi</span>.num) = <span class="number">0x7fff69aea528</span>
+((struct fracnum*)&(<span class="constant">pi</span>.denum))-&gt;num = <span class="number">7</span>
+((struct fracnum*)&(<span class="constant">pi</span>.denum))-&gt;denum = <span class="number">1773053288</span>
+&(((struct fracnum*)&(<span class="constant">pi</span>.denum))-&gt;denum) = <span class="number">0x7fff69aea530</span>
+num = <span class="number">22</span> denum = <span class="number">12</span>
+unknown data = <span class="number">33</span>
+</pre></td></tr></table></figure>
+
+<p>从上述的结果中我们可以看到,struct的第一个字段即是struct的地址，然后指针是依次叠加。</p>
+<p>但内存应该这么来读，最底下的也就是struct/num的指针，然后上面的是denum的指针：</p>
+<p><code>denum</code> &nbsp;0x7fff6372152c</p>
+<p><code>num</code>  &nbsp;&nbsp;&nbsp;  0x7fff63721528</p>
+<p>这样访问，取struct fracnum<em>的时候，每次都是以8个字节（fracnum的长度来取的），所以在用denum取得时候，将<em>*向上</em></em>访问到内存，越出边界了，下面我用unknown来代替未知的数据。</p>
+<p><code>unknown</code> &nbsp; 0x7fff63721530 -&gt; 33</p>
+<p><code>denum</code> &nbsp;0x7fff6372152c -&gt; 12</p>
+<p><code>num</code>  &nbsp;&nbsp;&nbsp;  0x7fff63721528 -&gt; 22</p>
+<p>好吧，我们再说一下内存字节对齐的问题（引自coolshell.cn）：</p>
+<ol>
+<li>struct X { int a; char b; int c; };</li>
+<li>printf(“%d,”, sizeof(struct X));</li>
+<li>struct Y { int a; char b; int c; char d};</li>
+<li>printf(“%d\n”, sizeof(struct Y));</li>
+</ol>
+<p>这个代码会输出什么?</p>
+<ul>
+<li>a) 9，10</li>
+<li>b)12, 12</li>
+<li>c)12, 16</li>
+</ul>
+<p>答案是C，我想，你一定知道字节对齐，是向4的倍数对齐。</p>
+<ul>
+<li>但是，你知道为什么要字节对齐吗？还是因为性能。因为这些东西都在内存里，如果不对齐的话，我们的编译器就要向内存一个字节一个字节的取，这样一来，struct X，就需要取9次，太浪费性能了，而如果我一次取4个字节，那么我三次就搞定了。所以，这是为了性能的原因。</li>
+<li>但是，为什么struct Y不向12 对齐，却要向16对齐，因为char d; 被加在了最后，当编译器计算一个结构体的尺寸时，是边计算，边对齐的。也就是说，编译器先看到了int，很好，4字节，然后是 char，一个字节，而后面的int又不能填上还剩的3个字节，不爽，把char b对齐成4，于是计算到d时，就是13 个字节，于是就是16啦。但是如果换一下d和c的声明位置，就是12了。</li>
+</ul>
+<p>另外，再提一下，上述程序的printf中的%d并不好，因为，在64位下，sizeof的size_t是unsigned long，而32位下是 unsigned int，所以，C99引入了一个专门给size_t用的%zu。这点需要注意。在64位平台下，C/C++ 的编译需要注意很多事。</p>
+<p>再来看一个数组struct的例子:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<span class="preprocessor">#include &lt;string.h&gt;</span>
+
+<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)
+{
+  <span class="keyword">struct</span> student {
+    <span class="keyword">char</span> *name;
+    <span class="keyword">char</span> suid[<span class="number">8</span>];
+    <span class="keyword">int</span> numUnits;
+  };
+
+  <span class="keyword">struct</span> student peoplies[<span class="number">4</span>];
+  peoplies[<span class="number">0</span>].numUnits = <span class="number">21</span>;
+  peoplies[<span class="number">2</span>].name = strdup(<span class="string">"Adam"</span>);
+  peoplies[<span class="number">3</span>].name = peoplies[<span class="number">0</span>].suid + <span class="number">6</span>;
+  <span class="built_in">strcpy</span>(peoplies[<span class="number">1</span>].suid, <span class="string">"40415xx"</span>);
+  <span class="built_in">strcpy</span>(peoplies[<span class="number">3</span>].name, <span class="string">"123456"</span>);
+  peoplies[<span class="number">7</span>].suid[<span class="number">11</span>] = <span class="string">'A'</span>;
+  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, peoplies[<span class="number">0</span>].numUnits);
+  <span class="comment">// out put 909456435, actually is 6543(little endian order)</span>
+  <span class="comment">// the memory of stucture's mapping order is</span>
+  <span class="comment">// declaration's order is oppsite in real memory.</span>
+  <span class="comment">/**
+     |  numUnits  |   numUnits  |  numUnits |  numUnits |
+     |    suid    |     suid    |    suid   |    suid   |
+     |    name    |     name    |    name   |    name   |
+   */</span>
+
+  <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+
+
+<p>继续，我们再来讨论下内存中栈和堆的存储方式。<br>每种编译器实现内存管理的方式都不同,malloc/realloc/free的方式都不同，这里不讨论具体某种编译器的实现了，实在太复杂，简单说说吧：<br>堆的实现，就像是一条链上的进行分配。</p>
+<p>为什么redis在计算内存的时候自己做了计数器呢？因为加上不同平台的指针大小。实际上free函数在调用的时候也只是关心你malloc/realloc内存的时候自己的指针，如果你malloc(100)想释放其中一段内存的大小，这样是不对的，因为本身内存管理算法也不允许这样做，只是关心的是在malloc/realloc后自身的指针。还有内存碎片的产生，以及一些启发式内存管理算法，到底是先找到最匹配的空间分配还是直接在链上先分配，以及如何进行内存压缩等等，都是堆内存管理器干的事情。</p>
+<p>再来简单说说栈管理，先看计算机的数据处理方式，数据能被处理，计算机需要将内存的数据载入计算器，然后再通过ALU(算数逻辑处理单元)进行处理，在写入到相应的寄存器，然后在写回内存。当然他们这之间是通过硅晶线进行连接（不好意思，具体电路方面不熟悉，暂且这么说吧）。</p>
+<p>栈数据分为代码段和数据段，代码段的指令存储是每条指令都是32位，4个字节，这个跟机器多少位没关系。关于指令的移动，当然有专有的寄存器来存储当前运行到哪条指令，举个for循环的例子，汇编代码中，跳转jmp还有组合使用一些判定指令，然后进行指令的跳转，也就是形成了for循环的结构，汇编指令的编写有时候是需要写完后面的指令，才能在写跳出循环（jmp到最后边的指令，因为你不知道后面指令的地址所以没法跳出去）的指令。</p>
+<p>为什么是32位的指令，汇编语言包含了59种命令，如何表示这59种命令，或者说机器如何来识别这些命令，翻译成机器码就是每条指令的前面6位。<br>然后5位用来表示要赋值的寄存器的，再用5位表示获取寄存器的位置，剩下的10位有可能表示一个有符号的常数。<br>这些都是有可能出现的分配位置的方式，并不是绝对的，也可能只用前面5位表示要赋值的寄存器，后面的全是常数等等，这取决于你的具体指令。</p>
+<p>Stack的调用，每个函数都有自己的栈空间，只能访问当前栈空间的数据，也就是每个函数的局部变量，参数变量等等，函数的开始先进行压栈操作，结束后在调回栈顶，逐级返回，为什么在C语言中的递归会出现栈溢出？因为没有优化，C语言编译器(GCC等等)并不会做尾递归优化，像lisp这样的函数语言大多数都可以进行为递归优化，不消耗栈空间。</p>
+<p>另外，二级指针的使用，介绍一片文章（来自coolshell.cn）<br><a href="http://coolshell.cn/articles/8990.html" target="_blank">Linus：利用二级指针删除单向链表</a></p>
+<p>先写到这里，有时间再继续整理相关内存的一些文章~</p>
+]]></content>
+    
+    
+      <category term="指针" scheme="http://www.100hack.com/tags/%E6%8C%87%E9%92%88/"/>
+    
+      <category term="C语言" scheme="http://www.100hack.com/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[zsh中文乱码问题]]></title>
+    <link href="http://www.100hack.com/2013/07/31/zshzhong-wen-luan-ma-wen-ti/"/>
+    <id>http://www.100hack.com/2013/07/31/zshzhong-wen-luan-ma-wen-ti/</id>
+    <published>2013-07-31T09:59:00.000Z</published>
+    <updated>2014-04-14T06:23:02.000Z</updated>
+    <content type="html"><![CDATA[<p>zsh中文乱码问题</p>
+<p>add below lines to your .zshrc file.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">export</span> LC_ALL=en_US.UTF-<span class="number">8</span>
+<span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span>
+</pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">source</span> .zshrc
+</pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>restart zsh.
+</pre></td></tr></table></figure>
+
+]]></content>
+    
+    
+      <category term="zsh" scheme="http://www.100hack.com/tags/zsh/"/>
+    
+      <category term="Terminal" scheme="http://www.100hack.com/categories/Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[fabric使用小记]]></title>
+    <link href="http://www.100hack.com/2013/06/28/fabricshi-yong-xiao-ji/"/>
+    <id>http://www.100hack.com/2013/06/28/fabricshi-yong-xiao-ji/</id>
+    <published>2013-06-28T08:28:00.000Z</published>
+    <updated>2014-04-14T06:21:56.000Z</updated>
+    <content type="html"><![CDATA[<p>Fabric:</p>
+<p><a href="https://github.com/fabric/fabric" target="_blank">https://github.com/fabric/fabric</a></p>
+<p>Docs:</p>
+<p><a href="http://fabfile.org" target="_blank">http://fabfile.org</a></p>
+<p>Fabric主要应用与命令行指令打包程序和上传，进行一些部署任务。当然你做什么都可以。但基于SSH的是比较方便的。</p>
+<p>fabric常用的几个命令行参数:</p>
+<ol>
+<li>-u USER 修改的是env.user</li>
+<li>-p PASSWORD 修改的是env.password</li>
+<li>-H HOSTS 修改的是env.hosts</li>
+<li>-f FABFILE 指定要执行的fabfile，默认运行当前目录的fabfile.py</li>
+</ol>
+<p>指定某个任务的执行参数:</p>
+<ol>
+<li>使用:来分割任务和参数</li>
+<li>使用,来分割参数</li>
+<li>使用=来表示关键字参数.</li>
+</ol>
+<p>例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">def</span> <span class="title">new_user</span><span class="params">(username, admin=<span class="string">'no'</span>, comment=<span class="string">"No comment provided"</span>)</span>:</span>
+    print(<span class="string">"New User (%s): %s"</span> % (username, comment))
+    <span class="keyword">pass</span>
+</pre></td></tr></table></figure>
+
+<ol>
+<li><p>你可以指定username</p>
+ <figure class="highlight $"><figcaption><span>fab new_user:steven```</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="attribute">2. 或者用关键字赋值
+
+	```$ fab new_user:username</span>=<span class="string">steven</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>如果两个参数都给了，那就按照位置赋值</p>
+ <figure class="highlight $"><figcaption><span>fab new_user:steven,yes```</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="attribute">
+4. 或者混合着使用
+
+	```$ fab new_user:steven,admin</span>=<span class="string">yes</span>
+</pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h4 id="注意：如果第一个参数采用关键字赋值的情况，那么后面的单词也必须是这种方式。">注意：如果第一个参数采用关键字赋值的情况，那么后面的单词也必须是这种方式。</h4>
+<p><del>fab new_user:username=myusername,yes</del></p>
+<p>几个常用的指令：</p>
+<ol>
+<li>lcd    本地的cd命令</li>
+<li>local  本地的指令</li>
+<li>cd     远端的cd命令</li>
+<li>run    远端的指令</li>
+</ol>
+<p>一个打包和上传的例子：</p>
+<script src="https://gist.github.com/c15a3dd722d2dc9c7df3.js"></script>
+
+
+<p>现在本地执行了一系列的打包指令，然后cd到远端，再执行put指令，将本地的test-1.0.jar推送到远端.</p>
+]]></content>
+    
+    
+      <category term="Fabric" scheme="http://www.100hack.com/tags/Fabric/"/>
+    
+      <category term="Python" scheme="http://www.100hack.com/categories/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[octopress使用小记]]></title>
+    <link href="http://www.100hack.com/2013/06/28/octopressshi-yong-xiao-ji/"/>
+    <id>http://www.100hack.com/2013/06/28/octopressshi-yong-xiao-ji/</id>
+    <published>2013-06-28T07:21:00.000Z</published>
+    <updated>2014-04-14T06:22:37.000Z</updated>
+    <content type="html"><![CDATA[<p>在经历了N次删除Blog和重新上传Blog，总算大致玩明白了Octopress。</p>
+<p>Octopress的发布和修改分为两个目录source和public，如果你<br>rake new_post[‘my article’]后，必须进行rake generate，同时就被发布到public目录里。</p>
+<p>修改文章是在source目录下修改，然后在rake generate，最后push到远端rake deploy，对于你的修改，再进行:</p>
+<ul>
+<li>git add .</li>
+<li>git commit -m ‘commit description’</li>
+<li>git push origin source</li>
+</ul>
+<p>此举为的是保存下你的原始修改，好做记录跟踪。<br>而远端的blog目录，也会分为两个分支，一个master，一个source，master用于github到你的主页展示，source用作你自己的原始文件记录跟踪。</p>
+<p>如果你想增加CNAME（域名解析），那就增加到source目录下，然后在rake generate，在rake deploy，最后在执行刚才的git的一些指令把你的记录push到远端。</p>
+<p>当然你修改了_config.yam，也是跟刚才的步骤一样。</p>
+<p>Markdown不说了，等我真正喜欢上的时候才发觉，这真的就是为写作而生的，你不需要鼠标的操作，弄个机械键盘吧，对于追求写作的人来说，这是必须的。</p>
+]]></content>
+    
+    
+      <category term="Blog" scheme="http://www.100hack.com/tags/Blog/"/>
+    
+      <category term="生活" scheme="http://www.100hack.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[关于XGameEnginee(Web轻量级游戏框架)]]></title>
+    <link href="http://www.100hack.com/2013/06/28/guan-yu-xgameenginee-webqing-liang-ji-you-xi-kuang-jia/"/>
+    <id>http://www.100hack.com/2013/06/28/guan-yu-xgameenginee-webqing-liang-ji-you-xi-kuang-jia/</id>
+    <published>2013-06-28T06:16:00.000Z</published>
+    <updated>2014-04-14T06:22:14.000Z</updated>
+    <content type="html"><![CDATA[<p>笔者在去年的时候完成过一个简陋的web game游戏框架，此框架的一些信息：</p>
+<p>NIO的理解，请参照：<br><a href="http://www.goldendoc.org/category/java-nio/" target="_blank">http://www.goldendoc.org/category/java-nio/</a></p>
+<p>Netty的一些理解，请参照：</p>
+<p><a href="http://www.kafka0102.com/2010/06/167.html" target="_blank">http://www.kafka0102.com/2010/06/167.html</a></p>
+<p><a href="http://rdc.taobao.com/team/jm/archives/423" target="_blank">http://rdc.taobao.com/team/jm/archives/423</a></p>
+<p>Netty的高可靠性，可伸缩性，以及效率的确让人着迷，为什么Netty这么快呢？</p>
+<p>Netty高效的原因：</p>
+<ul>
+<li>实现了多路Selector用于读和注册，线程数量是cpu*2，reactor都是这么做的，自己处理写事件，这个我在自己框架中也是这么做的，nio的selector处理注册和读，并且也优化了wakeup，Netty中的wakeup也是优化过的，本身一次wakeup对Nio并不大，但是大批量并发的时候就需要进行优化处理了，只有当selector堵塞的时候进行wakeup，或者说需要下次立刻返回的时候wakeup。</li>
+<li>Netty在开启多路读写的时候，用的是DirectBuffer，并用了SoftReferrence来做缓存优化，减少传输数据的内存移动和GC。还有预测数据算法，这个具体能不能提高有待讨论。</li>
+<li>并发的控制，基于SEDA的设计理论构建的高效事件模型，真正的异步处理，吞吐量和伸缩性都可以得到保证。</li>
+</ul>
+<p>nio的实现并不复杂，但想让你的底层通讯，效率，以及可伸缩性和高可靠性做好，还是极具挑战性的。</p>
+<p>目前有个项目是自己写的nio，但效率比起netty来，小了几个数量级，当然以本人一己之力能做到目前这个情况，还算自己满意，也用到生产环境中了，一个web game，及时性要求很高，一台server，5000人没问题。同时广播消息在10000人以内，当然有些优化是在业务逻辑层面的。当然比起netty的效率来讲还是差了几个数量级。</p>
+<p>除了高效，Netty在扩展性方面做的不错：</p>
+<ul>
+<li>丰富的decoder/encoder实现，你可以轻松的继承一个类实现自己的逻辑，例如游戏中，直接继承FiledLengthBaseFrameDecoder即可。</li>
+<li>自行添加decoder或者encoder，自由的控制事件流向顺序，通过这个，可以实现一些协议加密解密，协议过滤器，统计工具等等</li>
+<li>提供很多工具类：Timeout的一些实现，还有ChannelBuffers的一些工具，通常情况下，我们为了减少对Netty的依赖，会自己再封装一层，以完全达到脱离Netty的目的，都会再次封装一层ChannelBuffer，这样目的是不要让上层逻辑跟底层通讯有任何关联，降低耦合，当然也在为考虑更换底层通讯而不影响上层逻辑。</li>
+<li>提供监听底层消息的ChannelFuture，例如发送完消息可以断开连接等等</li>
+<li>可调控的通讯架构，可以根据业务的吞吐量来调整，Netty的各项参数不只有socket的一些设置，还能控制事件流顺序和吞吐量的大小等等。</li>
+</ul>
+<p>最后，基于Netty我简单封装了一个web game所具备的一些GameBuffer，目前比较简陋，后续可能加入一些别的功能。</p>
+<p>项目在:<a href="https://github.com/cuixin/XGameEnginee/" target="_blank">https://github.com/cuixin/XGameEnginee/</a></p>
+<h4 id="—————————-分割线—————————-">—————————-分割线—————————-</h4>
+<p>本人这个项目与去年12年6月份到10月份之间开发和使用，当时在做一个棋牌平台，并应用了该项目，由于一些其他原因，该项目未能大规模实验，但本人做了一些测试：</p>
+<ul>
+<li>性能测试，本人当时压过500人不间断发送消息，业务逻辑完全驱动，此项目如果纯只是发送消息的话，本人电脑上每秒大概单线程在1万条消息以上，因为是棋牌游戏，及时性要求不高，况且当时只是单线程跑的情况下能达到1万条消息已经算是能满足需求。由于是棋牌游戏，所以多核是很容易分配的，直接按照分房间即可实现多核计算，保守估计10000人同时在线很轻松。</li>
+<li>逻辑开发，在开发XGameEnginee的时候碰见过一些常见的问题，协议加密解密，广播协议加解密等等，数据格式的校验啊，以及资源释放顺序等等。</li>
+<li>关于测试方法的研究，本人对长连接的游戏一直没有太好的办法来进行测试。下面也是我要说的。</li>
+</ul>
+<p>在这个简单的开源框架中，本人现在看来做了一些很没有必要的工作——构造协议类型。GameBuffer这个东西固定了你的协议体就是什么样子的，现在看来是对框架的一种强侵入，很没有意义，只为了那丁点的内存复制性能丧失了本该灵活的框架。</p>
+<p>一个游戏服务器本应该提供很多系统功能：</p>
+<ol>
+<li>消息的推送，消息的广播(Channel).</li>
+<li>玩家的查找和定位.</li>
+<li>服务器之间的通讯.</li>
+<li>一些系统级的服务,定时器,触发器</li>
+<li>GM操作工具(玩家下线,玩家推送消息)</li>
+<li>系统启动日志和调试日志</li>
+<li>数据的统一日志</li>
+</ol>
+<p>最后我想说的是，游戏服务器的调试，对于长连接的服务器来讲，那真的是很麻烦。<br>所以我的看法是，采用长短结合的方式进行服务器开发更有益于发现问题和找到问题。</p>
+<p>笔者最近采用Nginx+Lua的模式，此模式开发极易上手，而且调试及其方便，后端挂在Redis，Redis从2.6开始支持Lua，可以说让只是远端数据结构的存储变成了一个真正意义上的，能计算的数据库。</p>
+<p>为什么说Redis支持Lua了如此之重要？因为Nginx+Lua只能算是一层前端的驱动，有了Redis这个单进程单队列完全能保证数据的唯一性，大部分市面上的短链接Web Game或者手机游戏基本上都可以采用这种模式进行开发，此模式开发的劣势和优势:</p>
+<p>优势:</p>
+<ol>
+<li>上手快，开发速度快，稍微有点编程经验的，培训1星期就能上手写东西。</li>
+<li>测试和调试方便和快速，很容易做性能测试，以及编写测试脚本，我目前采用lua+curl的方式构建测试脚本。</li>
+<li>前端无关性，前端可以使用php或者java，ruby等等，任何你想到的语言，只是用于调用后端redis脚本。</li>
+</ol>
+<p>劣势:</p>
+<ol>
+<li>逻辑全部基本都在Redis这个层面上，在调试的时候不太方便，只能是写一点调试一点。</li>
+<li>你每台Server承载的人数可能有限，因为至完全依赖于Redis所能承载的极限。</li>
+<li>不适合及时性要求较高的游戏，本身就是短链接。</li>
+</ol>
+<p>这种模式目前开发起来，我个人感觉很轻量，并且问题很容易定位，开发效率还是要高很多，如果长连接需要聊天的服务器，单独出来，包括向前端推送消息。</p>
+<p>开发游戏服务器，更多的不需要OO，而是需要DSL，lua这门语言的简洁，以及强大的表现能力很适合做后端开发，尤其对table的支持让这么语言可以迈进半个FP领域了。</p>
+<p>最后，本人开始研究厄兰了，因为对FP的热爱，再一看到厄兰的时候就倍感亲切，也许这个领域还有很多可以挖掘的宝藏在等着我们。</p>
+<p>为了能更好的迭代，更快速地迭代，增强移交能力，缩短迭代周期，提供更可靠，更高效的游戏服务器，我们只能继续寻找最优秀的做法，没有最优秀，只有最合适的！</p>
+]]></content>
+    
+    
+      <category term="Netty" scheme="http://www.100hack.com/tags/Netty/"/>
+    
+      <category term="WebGame" scheme="http://www.100hack.com/tags/WebGame/"/>
+    
+      <category term="Java" scheme="http://www.100hack.com/categories/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[小玩意:单词统计的lua脚本]]></title>
+    <link href="http://www.100hack.com/2013/06/28/xiao-wan-yi-dan-ci-tong-ji-de-luajiao-ben/"/>
+    <id>http://www.100hack.com/2013/06/28/xiao-wan-yi-dan-ci-tong-ji-de-luajiao-ben/</id>
+    <published>2013-06-28T04:07:00.000Z</published>
+    <updated>2014-04-14T06:22:52.000Z</updated>
+    <content type="html"><![CDATA[<p>最近学单词，一直考虑可以将每篇文章或者一个系列的单词进行统计。<br>于是就有了下面这个小玩意，目前只能读取文本文件，另外就是对一些单字母单词没有过滤。</p>
+<script src="https://gist.github.com/5521867.js"></script>
+
+
+]]></content>
+    
+    
+      <category term="统计" scheme="http://www.100hack.com/tags/%E7%BB%9F%E8%AE%A1/"/>
+    
+      <category term="Lua" scheme="http://www.100hack.com/categories/Lua/"/>
+    
+  </entry>
+  
+</feed>
