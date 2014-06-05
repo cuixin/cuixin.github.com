@@ -52,6 +52,79 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-09-02T13:50:00.000Z"><a href="/2013/09/02/switch-erlang-version/">Sep 2 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/09/02/switch-erlang-version/">Switch Erlang Version Shell</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>So, When I used brew to installed erlang, that’s version was too old. I compiled a new version to /usr/local/Cellar/erlang/RXXXX folder.</p>
+<p>I wanna both versions to being, wrote a shell to switch them:)</p>
+<p>./switch_erlang YOUR_ERLANG_FOLDER</p>
+<p>My computer’s like this:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>cd /usr/<span class="built_in">local</span>/Cellar/erlang/
+./switch_erlang.sh R15B03-<span class="number">1</span>
+Processing R15B03-<span class="number">1</span> -&gt; /usr/<span class="built_in">local</span>/bin
+/usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin
+Deleting <span class="built_in">files</span> ct_run dialyzer epmd erl erlc escript run_erl run_test to_erl typer
+Linking <span class="built_in">files</span>:
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/ct_run ct_run
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/dialyzer dialyzer
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/epmd epmd
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/erl erl
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/erlc erlc
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/escript escript
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/run_erl run_erl
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/run_test run_test
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/to_erl to_erl
+<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/typer typer
+Processed OK
+</pre></td></tr></table></figure>
+
+<script src="https://gist.github.com/6413056.js"></script>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-08-08T10:30:00.000Z"><a href="/2013/08/08/cyu-yan-zhi-zhen-he-nei-cun-bu-ju-de-na-xie-shi/">Aug 8 2013</a></time>
       
       
@@ -826,50 +899,6 @@ unknown data = <span class="number">33</span>
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-06-28T07:21:00.000Z"><a href="/2013/06/28/octopressshi-yong-xiao-ji/">Jun 28 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/06/28/octopressshi-yong-xiao-ji/">octopress使用小记</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>在经历了N次删除Blog和重新上传Blog，总算大致玩明白了Octopress。</p>
-<p>Octopress的发布和修改分为两个目录source和public，如果你<br>rake new_post[‘my article’]后，必须进行rake generate，同时就被发布到public目录里。</p>
-<p>修改文章是在source目录下修改，然后在rake generate，最后push到远端rake deploy，对于你的修改，再进行:</p>
-<ul>
-<li>git add .</li>
-<li>git commit -m ‘commit description’</li>
-<li>git push origin source</li>
-</ul>
-<p>此举为的是保存下你的原始修改，好做记录跟踪。<br>而远端的blog目录，也会分为两个分支，一个master，一个source，master用于github到你的主页展示，source用作你自己的原始文件记录跟踪。</p>
-<p>如果你想增加CNAME（域名解析），那就增加到source目录下，然后在rake generate，在rake deploy，最后在执行刚才的git的一些指令把你的记录push到远端。</p>
-<p>当然你修改了_config.yam，也是跟刚才的步骤一样。</p>
-<p>Markdown不说了，等我真正喜欢上的时候才发觉，这真的就是为写作而生的，你不需要鼠标的操作，弄个机械键盘吧，对于追求写作的人来说，这是必须的。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -940,6 +969,8 @@ unknown data = <span class="number">33</span>
     <li><a href="/tags/WebGame/">WebGame</a><small>1</small></li>
   
     <li><a href="/tags/zsh/">zsh</a><small>1</small></li>
+  
+    <li><a href="/tags/免密码ssh, ssh/">免密码ssh, ssh</a><small>1</small></li>
   
     <li><a href="/tags/指针/">指针</a><small>1</small></li>
   

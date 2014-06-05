@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Fabric | Steven的雕虫小技</title>
+  <title>Archives: 2014/6 | Steven的雕虫小技</title>
   <meta name="author" content="Steven">
   
   
@@ -42,7 +42,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">Fabric</h2>
+<h2 class="archive-title">2014/6</h2>
 
 
   
@@ -52,81 +52,21 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-06-28T08:28:00.000Z"><a href="/2013/06/28/fabricshi-yong-xiao-ji/">Jun 28 2013</a></time>
+        <time datetime="2014-06-05T06:17:47.000Z"><a href="/2014/06/05/免密码ssh/">Jun 5 2014</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/06/28/fabricshi-yong-xiao-ji/">fabric使用小记</a></h1>
+    <h1 class="title"><a href="/2014/06/05/免密码ssh/">免密码ssh</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>Fabric:</p>
-<p><a href="https://github.com/fabric/fabric" target="_blank">https://github.com/fabric/fabric</a></p>
-<p>Docs:</p>
-<p><a href="http://fabfile.org" target="_blank">http://fabfile.org</a></p>
-<p>Fabric主要应用与命令行指令打包程序和上传，进行一些部署任务。当然你做什么都可以。但基于SSH的是比较方便的。</p>
-<p>fabric常用的几个命令行参数:</p>
-<ol>
-<li>-u USER 修改的是env.user</li>
-<li>-p PASSWORD 修改的是env.password</li>
-<li>-H HOSTS 修改的是env.hosts</li>
-<li>-f FABFILE 指定要执行的fabfile，默认运行当前目录的fabfile.py</li>
-</ol>
-<p>指定某个任务的执行参数:</p>
-<ol>
-<li>使用:来分割任务和参数</li>
-<li>使用,来分割参数</li>
-<li>使用=来表示关键字参数.</li>
-</ol>
-<p>例子：</p>
+        <p>服务器实在太多了，输密码好费劲，写了个脚本把自己机器上的ssh public key导入服务器了</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">def</span> <span class="title">new_user</span><span class="params">(username, admin=<span class="string">'no'</span>, comment=<span class="string">"No comment provided"</span>)</span>:</span>
-    print(<span class="string">"New User (%s): %s"</span> % (username, comment))
-    <span class="keyword">pass</span>
+</pre></td><td class="code"><pre><span class="keyword">for</span> i <span class="keyword">in</span> {<span class="number">1</span>..<span class="number">30</span>}; <span class="keyword">do</span> ssh <span class="number">193.168</span>.<span class="number">1</span>.<span class="variable">$i</span> -lroot <span class="string">'echo "ssh-a key" &gt;&gt; ~/.ssh/authorized_keys'</span>;<span class="keyword">done</span>
 </pre></td></tr></table></figure>
 
-<ol>
-<li><p>你可以指定username</p>
- <figure class="highlight $"><figcaption><span>fab new_user:steven```</span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="attribute">2. 或者用关键字赋值
-
-	```$ fab new_user:username</span>=<span class="string">steven</span>
-</pre></td></tr></table></figure>
-</li>
-<li><p>如果两个参数都给了，那就按照位置赋值</p>
- <figure class="highlight $"><figcaption><span>fab new_user:steven,yes```</span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="attribute">
-4. 或者混合着使用
-
-	```$ fab new_user:steven,admin</span>=<span class="string">yes</span>
-</pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<h4 id="注意：如果第一个参数采用关键字赋值的情况，那么后面的单词也必须是这种方式。">注意：如果第一个参数采用关键字赋值的情况，那么后面的单词也必须是这种方式。</h4>
-<p><del>fab new_user:username=myusername,yes</del></p>
-<p>几个常用的指令：</p>
-<ol>
-<li>lcd    本地的cd命令</li>
-<li>local  本地的指令</li>
-<li>cd     远端的cd命令</li>
-<li>run    远端的指令</li>
-</ol>
-<p>一个打包和上传的例子：</p>
-<script src="https://gist.github.com/c15a3dd722d2dc9c7df3.js"></script>
-
-
-<p>现在本地执行了一系列的打包指令，然后cd到远端，再执行put指令，将本地的test-1.0.jar推送到远端.</p>
 
       
     </div>

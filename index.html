@@ -48,6 +48,43 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-06-05T06:17:47.000Z"><a href="/2014/06/05/免密码ssh/">Jun 5 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/06/05/免密码ssh/">免密码ssh</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>服务器实在太多了，输密码好费劲，写了个脚本把自己机器上的ssh public key导入服务器了</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">for</span> i <span class="keyword">in</span> {<span class="number">1</span>..<span class="number">30</span>}; <span class="keyword">do</span> ssh <span class="number">193.168</span>.<span class="number">1</span>.<span class="variable">$i</span> -lroot <span class="string">'echo "ssh-a key" &gt;&gt; ~/.ssh/authorized_keys'</span>;<span class="keyword">done</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-04-14T07:19:07.000Z"><a href="/2014/04/14/golang中的des加密ecb模式/">Apr 14 2014</a></time>
       
       
@@ -202,79 +239,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-09-02T13:50:00.000Z"><a href="/2013/09/02/switch-erlang-version/">Sep 2 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/09/02/switch-erlang-version/">Switch Erlang Version Shell</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>So, When I used brew to installed erlang, that’s version was too old. I compiled a new version to /usr/local/Cellar/erlang/RXXXX folder.</p>
-<p>I wanna both versions to being, wrote a shell to switch them:)</p>
-<p>./switch_erlang YOUR_ERLANG_FOLDER</p>
-<p>My computer’s like this:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="code"><pre>cd /usr/<span class="built_in">local</span>/Cellar/erlang/
-./switch_erlang.sh R15B03-<span class="number">1</span>
-Processing R15B03-<span class="number">1</span> -&gt; /usr/<span class="built_in">local</span>/bin
-/usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin
-Deleting <span class="built_in">files</span> ct_run dialyzer epmd erl erlc escript run_erl run_test to_erl typer
-Linking <span class="built_in">files</span>:
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/ct_run ct_run
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/dialyzer dialyzer
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/epmd epmd
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/erl erl
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/erlc erlc
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/escript escript
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/run_erl run_erl
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/run_test run_test
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/to_erl to_erl
-<span class="built_in">ln</span> -s /usr/<span class="built_in">local</span>/Cellar/erlang/R15B03-<span class="number">1</span>/bin/typer typer
-Processed OK
-</pre></td></tr></table></figure>
-
-<script src="https://gist.github.com/6413056.js"></script>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -342,6 +306,8 @@ Processed OK
     <li><a href="/tags/WebGame/">WebGame</a><small>1</small></li>
   
     <li><a href="/tags/zsh/">zsh</a><small>1</small></li>
+  
+    <li><a href="/tags/免密码ssh, ssh/">免密码ssh, ssh</a><small>1</small></li>
   
     <li><a href="/tags/指针/">指针</a><small>1</small></li>
   
