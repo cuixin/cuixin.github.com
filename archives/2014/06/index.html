@@ -64,7 +64,9 @@
       
         <p>服务器实在太多了，输密码好费劲，写了个脚本把自己机器上的ssh public key导入服务器了</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">for</span> i <span class="keyword">in</span> {<span class="number">1</span>..<span class="number">30</span>}; <span class="keyword">do</span> ssh <span class="number">193.168</span>.<span class="number">1</span>.<span class="variable">$i</span> -lroot <span class="string">'echo "ssh-a key" &gt;&gt; ~/.ssh/authorized_keys'</span>;<span class="keyword">done</span>
+2
+</pre></td><td class="code"><pre>
+<span class="keyword">for</span> i <span class="keyword">in</span> {<span class="number">1</span>..<span class="number">30</span>}; <span class="keyword">do</span> ssh <span class="number">193.168</span>.<span class="number">1</span>.<span class="variable">$i</span> -lroot <span class="string">'echo "ssh-a key" &gt;&gt; ~/.ssh/authorized_keys'</span>;<span class="keyword">done</span>
 </pre></td></tr></table></figure>
 
 
@@ -148,9 +150,9 @@
   
     <li><a href="/tags/WebGame/">WebGame</a><small>1</small></li>
   
-    <li><a href="/tags/zsh/">zsh</a><small>1</small></li>
+    <li><a href="/tags/ssh/">ssh</a><small>1</small></li>
   
-    <li><a href="/tags/免密码ssh, ssh/">免密码ssh, ssh</a><small>1</small></li>
+    <li><a href="/tags/zsh/">zsh</a><small>1</small></li>
   
     <li><a href="/tags/指针/">指针</a><small>1</small></li>
   
