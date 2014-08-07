@@ -52,6 +52,40 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2014-08-07T15:31:05.000Z"><a href="/2014/08/07/page/">Aug 7 2014</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/08/07/page/">Mersenne Twister(梅森螺旋随机数)的C#和Golang实现</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近在一个手游的项目中，需要用到一些随机数算法，客户端和服务器为了减少通讯量，就讲算法写了两边，随机数也采用了梅森螺旋随机数，虽然相对LCG算法慢的多，也更耗内存，但分布均匀，我一直觉得LCG只能用作非常小的范围内随机，比如2-10之间的数随机。</p>
+<script src="https://gist.github.com/1b8b6bd7bfbde8fe76e8.js"></script>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2014-06-05T06:17:47.000Z"><a href="/2014/06/05/免密码ssh/">Jun 5 2014</a></time>
       
       
@@ -172,79 +206,6 @@
 
 
   
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-09-25T03:28:00.000Z"><a href="/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/">Sep 25 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/09/25/sublimebao-cun-shi-zi-dong-zhuan-huan-tabcheng-kong-ge/">Sublime保存时自动转换tab成空格</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>每次保存前手动转换实在太烦人，下面这个脚本可以帮到你。</p>
-<ol>
-<li>打开sublime的Preference -&gt; Browser Packages …  </li>
-<li>新建一个目录ExpandTabsOnSave  </li>
-<li>新建文件ExpandTabsOnSave.py  </li>
-<li><p>把下面内容复制进去，保存  </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">import</span> sublime, sublime_plugin, os
-
-<span class="class"><span class="keyword">class</span> <span class="title">ExpandTabsOnSave</span><span class="params">(sublime_plugin.EventListener)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">on_pre_save</span><span class="params">(self, view)</span>:</span>
-        <span class="keyword">if</span> view.settings().get(<span class="string">'expand_tabs_on_save'</span>) == <span class="number">1</span>:
-            view.window().run_command(<span class="string">'expand_tabs'</span>)
-</pre></td></tr></table></figure>
-</li>
-<li><p>如果你想只是应用于当前项目，在 .sublime-project文件下添加：  </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="string">"settings"</span>: {
-    <span class="string">"expand_tabs_on_save"</span>: <span class="literal">true</span>
-}
-</pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>6.全局改变，打开Preferences -&gt; Settings - User添加：  </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="string">"settings"</span>: {
-    <span class="string">"expand_tabs_on_save"</span>: <span class="literal">true</span>
-}
-</pre></td></tr></table></figure>
-
-<p>原文地址：<a href="https://coderwall.com/p/zvyg7a" target="_blank">https://coderwall.com/p/zvyg7a</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -296,6 +257,8 @@
   
     <li><a href="/tags/Blog/">Blog</a><small>1</small></li>
   
+    <li><a href="/tags/C#/">C#</a><small>1</small></li>
+  
     <li><a href="/tags/DES/">DES</a><small>1</small></li>
   
     <li><a href="/tags/ECB/">ECB</a><small>1</small></li>
@@ -304,7 +267,9 @@
   
     <li><a href="/tags/Fabric/">Fabric</a><small>1</small></li>
   
-    <li><a href="/tags/Golang/">Golang</a><small>1</small></li>
+    <li><a href="/tags/Golang/">Golang</a><small>2</small></li>
+  
+    <li><a href="/tags/Mersenne Twister/">Mersenne Twister</a><small>1</small></li>
   
     <li><a href="/tags/Netty/">Netty</a><small>1</small></li>
   
@@ -319,6 +284,8 @@
     <li><a href="/tags/指针/">指针</a><small>1</small></li>
   
     <li><a href="/tags/统计/">统计</a><small>1</small></li>
+  
+    <li><a href="/tags/随机数/">随机数</a><small>1</small></li>
   
   </ul>
 </div>
